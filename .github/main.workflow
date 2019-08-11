@@ -1,42 +1,29 @@
-action "Build" {
-  uses = "actions/npm@master"
-  args = "install"
-}
-
-# Filter for master branch
-workflow "npm publish master" {
-  resolves = ["GitHub Action for npm under master branch"]
+# workflow
+workflow "Push" {
   on = "push"
+  resolves = ["auto release"]
 }
 
-action "GitHub Action for npm under master branch" {
-  needs = ["Master"]
-  uses = "actions/npm@master"
-  args = "publish --access public"
-  secrets = ["NPM_AUTH_TOKEN"]
+# actions
+action "npm install" {
+  uses = "docker://node"
+  args = "npm install -g npminstall && npminstall"
 }
 
-action "Master" {
-  needs = "Build"
+# target
+action "auto release" {
+  uses = "docker://node"
+  needs = ["filter master"]
+  args = "npm run semantic-release"
+  secrets = [
+    "GITHUB_TOKEN",
+    "NPM_AUTH_TOKEN",
+  ]
+}
+
+# filter
+action "filter master" {
   uses = "actions/bin/filter@master"
+  secrets = ["GITHUB_TOKEN"]
   args = "branch master"
-}
-
-# Filter for dev branch
-workflow "npm publish develop" {
-  resolves = ["GitHub Action for npm under develop branch"]
-  on = "push"
-}
-
-action "GitHub Action for npm under develop branch" {
-  needs = ["Develop"]
-  uses = "actions/npm@master"
-  args = "publish --access public"
-  secrets = ["NPM_AUTH_TOKEN"]
-}
-
-action "Develop" {
-  needs = "Build"
-  uses = "actions/bin/filter@master"
-  args = "branch develop"
 }
