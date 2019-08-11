@@ -1,18 +1,20 @@
 {
   "name": "action-demo",
-  "version": "1.0.1",
+  "version": "0.0.0-development",
   "description": "test actions",
   "main": "index.js",
   "dependencies": {
     "semantic-release": "^15.13.19"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "semantic-release": "^15.13.19"
+  },
   "scripts": {
-    "semantic-release": "semantic-release"
+    "semantic-release": "NPM_TOKEN=a2dc5821-9e0a-4d16-a860-ded93841202e GH_TOKEN=6071e8f66471f7530c23f082c7e0f257326cf368 semantic-release --no-ci"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rahim-Chan/action-demo.git"
+    "url": "https://github.com/Rahim-Chan/action-demo.git"
   },
   "author": "test",
   "license": "ISC",
