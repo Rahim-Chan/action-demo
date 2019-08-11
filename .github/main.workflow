@@ -30,7 +30,7 @@ action "Release" {
   args = "npm run semantic-release "
   secrets = [
     "GITHUB_TOKEN",
-    "NPM_AUTH_TOKEN",
+    "NPM_TOKEN",
   ]
 }
 
