@@ -1,7 +1,7 @@
 {
   "name": "action-demo",
   "version": "1.0.2",
-  "description": "test actions",
+  "description": "perf test actions",
   "main": "index.js",
   "dependencies": {
     "semantic-release": "^15.13.19"
