@@ -12,7 +12,7 @@ workflow "Push" {
 # 安装：仅当分支筛选通过时依赖安装
 action "Installation" {
   needs = "Filters for GitHub Actions"
-  uses = "thonatos/github-actions-nodejs@v0.1.1"
+  uses = "actions/setup-node@78148dae5052c4942d5b0f92719061df122a3b1c"
   args = "npm install npminstall -g && npminstall"
 }
 
