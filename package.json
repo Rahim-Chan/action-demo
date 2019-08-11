@@ -3,10 +3,12 @@
   "version": "1.0.1",
   "description": "test actions",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "semantic-release": "^15.13.19"
+  },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
