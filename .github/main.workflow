@@ -15,7 +15,10 @@ action "auto release" {
   uses = "docker://thonatos/github-actions-nodejs"
   needs = ["filter master"]
   args = "npm run semantic-release"
-  secrets = ["GITHUB_TOKEN", "NPM_TOKEN"]
+  secrets = [
+    "GITHUB_TOKEN",
+    "NPM_AUTH_TOKEN",
+  ]
 }
 
 # filter
