@@ -6,12 +6,16 @@ workflow "Push" {
   resolves = [
     "Release",
     "Installation",
+    "Filters for GitHub Actions-Dev",
   ]
 }
 
 # 安装：仅当分支筛选通过时依赖安装
 action "Installation" {
-  needs = "Filters for GitHub Actions"
+  needs = [
+    "Filters for GitHub Actions",
+    "Filters for GitHub Actions-Dev",
+  ]
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
   args = "install npminstall -g && npminstall"
 }
@@ -40,3 +44,15 @@ action "Filters for GitHub Actions" {
   secrets = ["GITHUB_TOKEN"]
   args = "branch master"
 }
+
+action "Filters for GitHub Actions-Dev" {
+  uses = "actions/bin/filter@25b7b846d5027eac3315b50a8055ea675e2abd89"
+  args = "branch develop"
+  secrets = ["GITHUB_TOKEN"]
+}# .github/main.workflow
+# # CI: 需先安装依赖
+# action "CI" {
+#   needs = "Installation"
+#   uses = "thonatos/github-actions-nodejs@v0.1.1"
+#   args = "npm run ci"
+# }
