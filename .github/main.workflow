@@ -12,8 +12,8 @@ workflow "Push" {
 # 安装：仅当分支筛选通过时依赖安装
 action "Installation" {
   needs = "Filters for GitHub Actions"
-  uses = "thonatos/github-actions-nodejs@v0.1.1"
-  args = "npm install npminstall -g && npminstall"
+  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  args = "install npminstall -g && npminstall"
 }
 
 # # CI: 需先安装依赖
