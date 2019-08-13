@@ -21,14 +21,5 @@
   "bugs": {
     "url": "https://github.com/Rahim-Chan/action-demo/issues"
   },
-  "release": {
-    "branche": "master",
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      "@semantic-release/github"
-    ]
-  },
   "homepage": "https://github.com/Rahim-Chan/action-demo#readme"
 }
