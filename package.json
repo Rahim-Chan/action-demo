@@ -1,9 +1,10 @@
 {
   "name": "action-demo",
-  "version": "1.0.2",
+  "version": "1.1.2",
   "description": "test actions",
   "main": "index.js",
   "dependencies": {
+    "@semantic-release/git": "^7.0.16",
     "semantic-release": "^15.13.19"
   },
   "devDependencies": {
