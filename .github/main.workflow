@@ -42,11 +42,6 @@ action "Filters for GitHub Actions" {
   args = "branch master"
 }
 
-workflow "New workflow" {
-  on = "push"
-  resolves = ["thonatos/github-actions-nodejs@v0.1.1"]
-}
-
 action "Filters for GitHub Actions-1" {
   uses = "actions/bin/filter@25b7b846d5027eac3315b50a8055ea675e2abd89"
   args = "branch develop"
@@ -64,7 +59,8 @@ action "thonatos/github-actions-nodejs@v0.1.1" {
   needs = ["GitHub Action for npm"]
   args = "npm run semantic-release"
   secrets = ["GITHUB_TOKEN", "NPM_TOKEN"]
-}# .github/main.workflow
+} # .github/main.workflow
+
 # # CI: 需先安装依赖
 # action "CI" {
 #   needs = "Installation"
