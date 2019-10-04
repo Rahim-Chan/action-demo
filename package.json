@@ -11,9 +11,6 @@
     "@semantic-release/release-notes-generator": "^7.3.0",
     "semantic-release": "^15.13.19"
   },
-  "devDependencies": {
-    "semantic-release": "^15.13.19"
-  },
   "scripts": {
     "semantic-release": "semantic-release"
   },

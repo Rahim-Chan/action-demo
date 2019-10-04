@@ -7,7 +7,7 @@ name: Actions Release
 on:
   push:
     branches:
-    - master
+      - master
 
 # 任务列表
 jobs:
@@ -25,12 +25,17 @@ jobs:
     # 这里定义了任务运行过程中的各个步骤
     steps:
 
-    # 代码拉取
-    - uses: actions/checkout@master
+      # 代码拉取
+      - uses: actions/checkout@master
 
-    # NPM 包发布
-    - name: Release NPN Package
-      run: npm run semantic-release
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # 依赖安装并打包
+      - name: Install Dependencies and Build
+        run: |
+          npm install -g npminstall
+          npminstall
+      # NPM 包发布
+      - name: Release NPN Package
+        run: npm run semantic-release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
