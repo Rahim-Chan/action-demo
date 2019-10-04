@@ -1,6 +1,6 @@
 {
   "name": "action-demo",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "test actions",
   "main": "index.js",
   "dependencies": {
